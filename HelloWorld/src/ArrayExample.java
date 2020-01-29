@@ -1,10 +1,14 @@
 
 public class ArrayExample {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //배열
 		int [] intAry = {2,3,4,5};
-		
-		System.out.println(intAry[0]);
+		int [] int2Ary = new int[5];
+		int2Ary[0] =1;
+		int2Ary[5] =10;  //오류가남. 배열이 5까지인데 넘어서 오류가 나온다.
+//		int [] int3Ary = null;
+//		int3Ary =new int[] {1,2,3}; 이렇게 사용할수 있지만 위에 방법으로 통일해서 사용 
+ 		System.out.println(intAry[0]);
 		System.out.println(intAry[1]);
 		System.out.println(intAry[2]);
 		System.out.println(intAry[3]);
