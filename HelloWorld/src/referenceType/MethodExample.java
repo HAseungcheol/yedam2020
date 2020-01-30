@@ -8,7 +8,7 @@ public class MethodExample {
 		num1 =10;
 		num2 =20;
 		result = (num1+num2)*3;
-		System.out.println("결과값은:"+result);
+		System.out.println("결과값은1:"+result);
 		
 		multiAfterSum(num1,num2); //메소드 불러와서 계산
 		int a1, a2;
@@ -25,6 +25,6 @@ public class MethodExample {
 		n1=a;
 		n2=b;
 		rslt = (n1+n2)*3;
-		System.out.println("결과값은:"+rslt);
+		System.out.println("결과값은2:"+rslt);
 	}
 }
