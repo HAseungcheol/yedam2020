@@ -1,7 +1,18 @@
 package com.yedam.ha.classes;
 
 public class StudentArrayExample {
+	static Student[] stdAry=new Student[3];
 
+	public static Student getStudent(String name) {
+		Student st1=null;
+		for(int i=0; i<stdAry.length; i++) {
+			if(stdAry[i].getName().equals(name)) //문자열 equals 사용하기 
+			st1 = stdAry[i];
+		}
+		return st1;
+	}
+			
+	
 	public static void main(String[] args) {
 		Student[] stdAry = new Student[3];
 		
@@ -31,12 +42,15 @@ public class StudentArrayExample {
 		
 		
 		
-		for(int i=0; i<stdAry.length; i++) {
-			if(stdAry[i].getName().equals("choi")) //문자열 equals 사용하기 
-			System.out.println(stdAry[i].name+" "+stdAry[i].getage());
-		}
+//		for(int i=0; i<stdAry.length; i++) {
+//			if(stdAry[i].getName().equals("choi")) //문자열 equals 사용하기 
+//			System.out.println(stdAry[i].name+" "+stdAry[i].getage());
+//		}
 		
 		
-	}
+//	}
+//		Student s1=getStudent("choi")
+//			System.out.println(s1.toString());
 
+	}
 }
