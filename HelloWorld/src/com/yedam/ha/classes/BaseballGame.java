@@ -1,4 +1,4 @@
-package com.yedam.yje.classes;
+package com.yedam.ha.classes;
 
 import java.util.Scanner;
 
@@ -21,7 +21,7 @@ public class BaseballGame {
             }
          }
       }
-      // User가 세 개의 정수를 입력하도록 하여, User 배열에 숫자를 입력
+      // User가 세 개의 정수를 입력하도록 하여, User 배열에 숫+자를 입력
       Scanner sc = new Scanner(System.in);
       System.out.println("1~9의 정수를 입력 >>");
 //      for (int i = 0; i < answer.length; i++) {
