@@ -11,4 +11,11 @@ public interface EmpService {
 	
 	//삭제
 	public void delEmp(int empNo, Employee[] emps);
+	
+	//디비 연결 조회 가능
+	public void searchEmployees();
+	
+	//디비 입력 기능
+	public void insertEmployees(Employees emp);  //추상메소드
+	
 }
