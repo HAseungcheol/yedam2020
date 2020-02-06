@@ -1,5 +1,6 @@
 package com.yedam.ha.interfaces.control;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.yedam.ha.interfaces.impl.EmpServiceImpl;
@@ -16,7 +17,7 @@ public class EmpProc {
 		System.out.println("프로그램 시작.");
 		while (true) {
 			System.out.println("========================");
-			System.out.println("1.추가 2.조회 3.라스트 4.삭제 5.종료 6.디비조회 7.디비입력");
+			System.out.println("1.추가 2.조회 3.라스트 4.삭제 5.종료 6.디비조회 7.디비입력 8.디비수정 9.삭제");
 			System.out.println("========================");
 			System.out.println("선택>");
 			int menu = scn.nextInt();
@@ -34,7 +35,9 @@ public class EmpProc {
 			} else if (menu == 2) {
 				System.out.println("사원번호 입력: ");
 				int no = scn.nextInt();
-				service.searchEmp(no, employees);
+//				service.searchEmp(no, employees);
+				Employees emp = service.getDBEmployee(no);
+				System.out.println(emp);
 
 			} else if (menu == 3) {
 
@@ -48,7 +51,11 @@ public class EmpProc {
 			} else if (menu == 5) {
 				break;
 			} else if (menu == 6) {
-				service.searchEmployees();
+//				service.searchEmployees();
+				List<Employees> list = service.getDBEmployees();
+				for (Employees emp : list) {
+					System.out.println(emp);
+				}
 			} else if (menu == 7) {
 				System.out.println("last입력");
 				String lastName = scn.nextLine();
@@ -61,6 +68,28 @@ public class EmpProc {
 				emp.setEmail(email);
 				emp.setJobId(jobId);
 				service.insertEmployees(emp);
+			} else if (menu == 8) {
+				System.out.println("조회 사원 입력.");
+				int empId = scn.nextInt();
+				System.out.println("급여 인상분 입력.");
+				int sal = scn.nextInt();
+				scn.nextLine();
+				System.out.println("변경할 이메일 입력.");
+				String email = scn.nextLine();
+
+				Employees emp = new Employees();
+				emp.setSalary(sal);
+				emp.setEmail(email);
+				emp.setEmployeeId(empId);
+
+				service.updateDBEmp(emp);
+			} else if (menu == 9) {
+				System.out.println("삭제 사원번호 입력");
+				int employeesId = scn.nextInt();
+				Employees emp = new Employees();
+				emp.setEmployeeId(employeesId);
+				service.deleteDBEmp(emp);
+
 			}
 		} // end of while
 		System.out.println("프로그램 종료");
