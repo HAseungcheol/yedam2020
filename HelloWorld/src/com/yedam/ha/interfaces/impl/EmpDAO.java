@@ -91,21 +91,29 @@ public class EmpDAO {
 	// 4.디비 수정
 		public void updateEmployees(Employees emp) {
 			conn = DAO.getConnect();
-			String sql = "update emp_temp  set salary =?, email= ? where employee_id =?";
-			try {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, emp.getSalary());
-				pstmt.setString(2, emp.getEmail());
-				pstmt.setInt(3, emp.getEmployeeId());
-				pstmt.executeUpdate();
-				int r = pstmt.executeUpdate();
-				System.out.println(r+"건이 변경되었습니다.");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				DAO.close(conn);
-			}
-		}
+			String sql = "update emp_temp" 
+					+"set first_name = first_name";
+			if(emp.getSalary()!=0)
+				sql = sql+",salry=salary+?";
+			if(emp.getEmail()!=null && !emp.getEmail().equals(""))
+				sql=sql+", email=?";
+			sql=sql+"where employeed_id=?";
+			  try {
+			         int cnt = 0;
+			         pstmt = conn.prepareStatement(sql);
+			         if (emp.getSalary() != 0)
+			            pstmt.setInt(++cnt, emp.getSalary());
+			         if (emp.getEmail() !=null && !emp.getEmail().equals(""))
+			            pstmt.setString(++cnt, emp.getEmail());
+			         pstmt.setInt(++cnt, emp.getEmployeeId());
+			         int r = pstmt.executeUpdate();
+			         System.out.println(r + "건이 변경되었습니다.");
+			      } catch (SQLException e) {
+			         e.printStackTrace();
+			      } finally {
+			         DAO.close(conn);
+			      }
+			   }
 	
 		public void insertEmployees(Employees emp) {
 		conn = DAO.getConnect();

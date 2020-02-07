@@ -69,20 +69,25 @@ public class EmpProc {
 				emp.setJobId(jobId);
 				service.insertEmployees(emp);
 			} else if (menu == 8) {
-				System.out.println("조회 사원 입력.");
-				int empId = scn.nextInt();
-				System.out.println("급여 인상분 입력.");
-				int sal = scn.nextInt();
-				scn.nextLine();
-				System.out.println("변경할 이메일 입력.");
-				String email = scn.nextLine();
+				System.out.println("조회할 사원번호를 입력하세요.");
+	            int empId = scn.nextInt();
+	            scn.nextLine();
+	            System.out.println("급여 인상분 입력하세요. (없으면 Enter 키)");
+	            String salNum = scn.nextLine();
+//	            System.out.println(salNum);
+	            int sal = 0;
+	            if (salNum != null && !salNum.equals("")) {
+	               sal = Integer.parseInt(salNum);
+	            }
+	            System.out.println("변경할 이메일을 입력하세요.(없으면 Enter 키)");
+	            String email = scn.nextLine();
 
-				Employees emp = new Employees();
-				emp.setSalary(sal);
-				emp.setEmail(email);
-				emp.setEmployeeId(empId);
+	            Employees emp = new Employees();
+	            emp.setSalary(sal);
+	            emp.setEmail(email);
+	            emp.setEmployeeId(empId);
 
-				service.updateDBEmp(emp);
+	            service.updateDBEmp(emp);
 			} else if (menu == 9) {
 				System.out.println("삭제 사원번호 입력");
 				int employeesId = scn.nextInt();

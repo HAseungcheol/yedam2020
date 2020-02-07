@@ -1,0 +1,11 @@
+//package com.yedam.ha.interfaces;
+//
+//public class ServiceMain {
+//
+//	public static void main(String[] args) {
+////		ServiceProc sp = new ServiceProc();
+//			sp.execute();
+//
+//	}
+//
+//}
